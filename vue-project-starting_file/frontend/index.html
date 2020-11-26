@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <title>GROUPOMANIA</title>
+
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <link rel="icon" href="./assets/img/vueLogo.png" />
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.2/css/all.css" />
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link href="./assets/style/style.css" rel="stylesheet" />
+
+</head>
+
+<body>
+    <div id="app">
+        <nav>
+            <div class="nav-container">
+                <div id="logo">
+                    <router-link to="/">
+                        <img src="./assets/img/icon-left-font-monochrome-black.svg" alt="logo" />
+                    </router-link>
+                </div>
+
+                <ul id="icons">
+                    <li>
+                        <router-link to="/">
+                            <img src="./assets/img/identification.png" alt="logo" />
+                        </router-link>
+                        <h4>s'identifiez</h4>
+
+                    </li>
+                    <li>
+                        <router-link to="/inscription">
+                            <img src="./assets/img/Inscription.png" alt="logo" />
+                            <h4>Inscription</h4>
+                            <span id="nav-notif"></span>
+                        </router-link>
+                    </li>
+
+                </ul>
+            </div>
+        </nav>
+
+
+        <router-view></router-view>
+
+    </div>
+
+    <script type="text/x-template" id="home">
+        <div class='box'>
+            <div class='box-form'>
+                <div class='box-login-tab'></div>
+                <div class='box-login-title'>
+                    <div class='i i-login'></div>
+                    <h2>LOGIN</h2>
+                </div>
+                <div class='box-login'>
+                    <div class='fieldset-body' id='login_form'>
+                        <button onclick="openLoginInfo();" class='b b-form i i-more' title='Mais Informações'></button>
+                        <p class='field'>
+                            <label for='user'>E-MAIL</label>
+                            <input type='text' id='user' name='user' title='Username' />
+                            <span id='valida' class='i i-warning'></span>
+                        </p>
+                        <p class='field'>
+                            <label for='pass'>PASSWORD</label>
+                            <input type='password' id='pass' name='pass' title='Password' />
+                            <span id='valida' class='i i-close'></span>
+                        </p>
+
+                        <label class='checkbox'>
+                <input type='checkbox' value='TRUE' title='Restez connecté' /> restez connecté
+              </label>
+
+                        <router-link to="/publications">
+                            <input type='submit' id='do_login' value='Connexion' title='Connexion' />
+                        </router-link>
+
+                    </div>
+                </div>
+            </div>
+            <div class='box-info'>
+                <p><button onclick="closeLoginInfo();" class='b b-info i i-left' title='Back to Sign In'></button>
+                    <h3>Need Help?</h3>
+                </p>
+
+
+            </div>
+        </div>
+    </script>
+
+    <script type="text/x-template" id="inscription">
+        <div class='box'>
+            <div class='box-form'>
+                <div class='box-login-tab'></div>
+                <div class='box-login-title'>
+                    <div class='i i-login'></div>
+                    <h2>Créer un compte</h2>
+                </div>
+                <div class='box-login'>
+                    <div class='fieldset-body' id='login_form'>
+                        <button onclick="openLoginInfo();" class='b b-form i i-more' title='Mais Informações'></button>
+
+                        <p class='field'>
+                            <label for='user'>NOM</label>
+                            <input type='text' id='user' name='user' title='Username' />
+                            <span id='valida' class='i i-warning'></span>
+                        </p>
+
+                        <p class='field'>
+                            <label for='user'>E-MAIL</label>
+                            <input type='text' id='user' name='user' title='Username' />
+                            <span id='valida' class='i i-warning'></span>
+                        </p>
+                        <p class='field'>
+                            <label for='pass'>PASSWORD</label>
+                            <input type='password' id='pass' name='pass' title='Password' />
+                            <span id='valida' class='i i-close'></span>
+                        </p>
+
+                        <p class='field'>
+                            <label for='user'>CONFIRM PASSWORD</label>
+                            <input type='text' id='user' name='user' title='Username' />
+                            <span id='valida' class='i i-warning'></span>
+                        </p>
+
+                        <router-link to="/publications">
+                            <input type='submit' id='do_login' value='Connexion' title='Connexion' />
+                        </router-link>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </script>
+
+
+    <script type="text/x-template" id="publications">
+        <div class="container">
+            <h1>Bienvenu sur notre réseau social Groupomania!</h1>
+            <form>
+                <fieldset>
+                    <div class="fil_actu">Fil d’actualité</div>
+
+                    <textarea class="form-control" id="bio" placeholder="Votre texte içi" rows="3"></textarea>
+                </fieldset>
+
+                <p>
+                    <h5>Insérer une photo</h5>
+                    <input type="file" id="modele" name="file" multiple>
+
+
+
+
+
+                </p>
+
+                <div class="modele_bouton1">
+                    <input type='submit' id='do_login' value='Poster' title='Poset' />
+                    <form method="post" enctype="multipart/form-data">
+                </div>
+                <div class="modele_bouton2">
+
+                </div>
+
+                </form>
+
+        </div>
+
+
+
+
+        </form>
+    </script>
+    <footer>
+
+    </footer>
+
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="https://unpkg.com/vue-router@2.0.0/dist/vue-router.js"></script>
+    <script src="./assets/js/vue.js"></script>
+    <script src="./assets/js/script.js"></script>
+</body>
+
+</html>
