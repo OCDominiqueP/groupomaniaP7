@@ -3,6 +3,7 @@ const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 
 
+
 exports.signup = (req, res, _next) => {
     const user = req.body
     bcrypt.hash(user.password, 10).then((hash) => {
